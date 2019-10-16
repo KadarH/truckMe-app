@@ -1,5 +1,9 @@
 # TruckMeApp
 
+A webapp for supervising trucks and sending reports to clients
+
+--- 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
