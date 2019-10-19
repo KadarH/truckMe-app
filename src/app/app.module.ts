@@ -11,12 +11,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -31,13 +25,7 @@ import { MatListModule } from '@angular/material/list';
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   providers: []
