@@ -12,12 +12,14 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { TruckListComponent } from './truck-list/truck-list.component';
+import { TruckAddComponent } from './truck-add/truck-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderNavComponent,
-    TruckListComponent
+    TruckListComponent,
+    TruckAddComponent
   ],
   imports: [
     BrowserModule,

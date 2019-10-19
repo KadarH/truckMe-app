@@ -8,9 +8,9 @@
     </mat-toolbar>
     <hr>
     <mat-nav-list>
-      <a mat-list-item href="#"> <mat-icon aria-hidden="true" aria-label="User">list</mat-icon> List of Trucks</a>
-      <a mat-list-item href="#"> <mat-icon aria-hidden="true" aria-label="User">add</mat-icon> Add Truck</a>
-      <a mat-list-item href="#"> <mat-icon aria-hidden="true" aria-label="User">settings</mat-icon>Settings</a>
+      <a mat-list-item [routerLink]="['/truck-list']" routerLinkActive="router-link-active" > <mat-icon aria-hidden="true" aria-label="User">list</mat-icon> List of Trucks</a>
+      <a mat-list-item [routerLink]="['/truck-add']"> <mat-icon aria-hidden="true" aria-label="User">add</mat-icon> Add Truck</a>
+      <a mat-list-item [routerLink]="['/']"> <mat-icon aria-hidden="true" aria-label="User">settings</mat-icon>Settings</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
