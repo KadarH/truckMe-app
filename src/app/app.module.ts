@@ -11,11 +11,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
+import { TruckListComponent } from './truck-list/truck-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
+    TruckListComponent
   ],
   imports: [
     BrowserModule,

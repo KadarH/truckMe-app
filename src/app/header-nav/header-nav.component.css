@@ -2,20 +2,16 @@
   height: 100%;
 }
 
-
 .sidenav {
   width: 250px;
   margin: 0%;
   box-shadow: 3px 0 6px rgba(#000000,  .24);
-}
-
-.sidenav-back {
   background: #03dac6;
 }
 
 .sidenav-back-top {
   background: #03dac6;
-  height: 73px;;
+  height: 73px;
 }
 
 .sidenav-logo {
