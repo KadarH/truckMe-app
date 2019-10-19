@@ -14,7 +14,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="sidenav-back">
+    <mat-toolbar class="sidenav-back-top">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -24,9 +24,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="spacer"></span>
-      <a href="#">DASHBOARD</a>
-      <a href="#">CONFIG</a>
+      <button mat-fab color="primary" title="Home"><mat-icon>home</mat-icon></button>
+      <button mat-fab color="accent" title="Config"><mat-icon>settings</mat-icon></button>
+      <button mat-fab color="warn" title="Log out"><mat-icon>logout</mat-icon></button>
     </mat-toolbar>
+    <hr style="margin-top: 0;">
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

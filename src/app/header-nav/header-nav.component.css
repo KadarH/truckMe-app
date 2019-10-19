@@ -13,6 +13,11 @@
   background: #03dac6;
 }
 
+.sidenav-back-top {
+  background: #03dac6;
+  height: 73px;;
+}
+
 .sidenav-logo {
   justify-content: center;
 }
