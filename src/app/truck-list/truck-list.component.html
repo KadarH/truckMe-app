@@ -1,12 +1,12 @@
 <div class="main-content">
     <mat-form-field class="search-form">
-        <input matInput placeholder="Search Picture" type="text">
+        <input matInput placeholder="Search Truck" type="text">
     </mat-form-field>
     <button button="submit" mat-raised-button color="primary">Search</button>
 
     <br>
 
-    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
         <mat-card class="card-picture">
           <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
             <span fxFlex="80%">CB-360</span>
@@ -15,12 +15,11 @@
           </mat-card-title>
           <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
           <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest
-              </p>
+              <p> The Shiba Inu is the smallest </p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button>Statistics</button>
+            <a type="button" mat-raised-button [routerLink]="['/truck-detail','1']" routerLinkActive="router-link-active" >
+              Statistics</a>
             <button mat-raised-button>Edit</button>
           </mat-card-actions>
         </mat-card>

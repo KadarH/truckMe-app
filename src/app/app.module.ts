@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { TruckListComponent } from './truck-list/truck-list.component';
 import { TruckAddComponent } from './truck-add/truck-add.component';
+import { TruckDetailComponent } from './truck-detail/truck-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderNavComponent,
     TruckListComponent,
-    TruckAddComponent
+    TruckAddComponent,
+    TruckDetailComponent
   ],
   imports: [
     BrowserModule,

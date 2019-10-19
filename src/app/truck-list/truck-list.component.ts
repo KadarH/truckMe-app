@@ -11,5 +11,4 @@ export class TruckListComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
