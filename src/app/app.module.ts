@@ -7,17 +7,21 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import {MatNativeDateModule} from '@angular/material/core';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './navigation/header/header.component';
+import { HeaderNavComponent } from './header-nav/header-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidenavComponent
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +31,14 @@ import { HeaderComponent } from './navigation/header/header.component';
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
-  entryComponents: [SidenavComponent],
   bootstrap: [AppComponent],
   providers: []
 })
