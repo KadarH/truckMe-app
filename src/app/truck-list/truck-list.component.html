@@ -1,95 +1,54 @@
-<div class="main-content">
-    <mat-form-field class="search-form">
-        <input matInput placeholder="Search Truck" type="text">
-    </mat-form-field>
-    <button button="submit" mat-raised-button color="primary">Search</button>
 
-    <br>
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 150vh">
 
-    <div fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-        <mat-card class="card-picture">
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <span fxFlex="80%">CB-360</span>
-            <mat-icon fxFlex="10%">mode_edit</mat-icon>
-            <mat-icon fxFlex="10%">delete</mat-icon>
-          </mat-card-title>
-          <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
-          <mat-card-content>
-              <p> The Shiba Inu is the smallest </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <a type="button" mat-raised-button [routerLink]="['/truck-detail','1']" routerLinkActive="router-link-active" >
-              Statistics</a>
-            <button mat-raised-button>Edit</button>
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="card-picture">
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <span fxFlex="80%">TK-380</span>
-            <mat-icon fxFlex="10%">mode_edit</mat-icon>
-            <mat-icon fxFlex="10%">delete</mat-icon>
-          </mat-card-title>
-          <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
-          <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest
-              </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button>Statistics</button>
-            <button mat-raised-button>Edit</button>
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="card-picture">
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <span fxFlex="80%">CB-360</span>
-            <mat-icon fxFlex="10%">mode_edit</mat-icon>
-            <mat-icon fxFlex="10%">delete</mat-icon>
-          </mat-card-title>
-          <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
-          <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest
-              </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button>Statistics</button>
-            <button mat-raised-button>Edit</button>
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="card-picture">
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <span fxFlex="80%">CB-360</span>
-            <mat-icon fxFlex="10%">mode_edit</mat-icon>
-            <mat-icon fxFlex="10%">delete</mat-icon>
-          </mat-card-title>
-          <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
-          <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest
-              </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button>Statistics</button>
-            <button mat-raised-button>Edit</button>
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="card-picture">
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <span fxFlex="80%">CB-360</span>
-            <mat-icon fxFlex="10%">mode_edit</mat-icon>
-            <mat-icon fxFlex="10%">delete</mat-icon>
-          </mat-card-title>
-          <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png">
-          <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest
-              </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button>Statistics</button>
-            <button mat-raised-button>Edit</button>
-          </mat-card-actions>
-        </mat-card>
+  <div fxLayout="row wrap">
+    <!-- loop over the cardList and show the cards -->
+    <div
+      fxFlex="25"
+      fxFlex.md="33"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+      fxLayout="column"
+      style="padding: 5px;"
+    >
+      <!-- cards here -->
+      <mat-card class="mat-elevation-z1">
+        <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png" />
+        <mat-card-title> CB360 - GROUPE 1 </mat-card-title>
+        <mat-card-content>
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Export Report
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <mat-form-field>
+                    <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                  </mat-form-field>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Close</button>
+                    <button mat-button color="primary" (click)="nextStep()">Export</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+
+        </mat-card-content>
+        <mat-card-footer>
+          <button fxFlex mat-button color="primary">
+            Edit
+          </button>
+          <button fxFlex mat-button color="primary">
+            Statistics
+          </button>
+          <button fxFlex mat-button color="warn">
+            Delete
+          </button>
+        </mat-card-footer>
+      </mat-card>
     </div>
+  </div>
 </div>
