@@ -1,6 +1,8 @@
 
 <div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 150vh">
-
+  <div style="text-align: center;">
+    <h2> List of Trucks</h2>
+  </div>
   <div fxLayout="row wrap" >
     <!-- loop over the cardList and show the cards -->
     <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
@@ -20,18 +22,17 @@
     </div>
     <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
 
-       <mat-card class="mat-elevation-z1">
+       <mat-card class="mat-elevation-z1" style="height: 100%;">
         <a [routerLink]="['/truck-add']" routerLinkActive="router-link-active" >
             <img mat-card-image src="https://img.pngio.com/circled-plus-icon-plus-png-256_256.png" />
         </a>
         <hr style="margin-top:0 ;">
         <mat-card-footer>
-          <button fxFlex mat-flat-button color="primary">
+          <button style="height: 57px;" fxFlex mat-flat-button color="primary">
             Add new truck
           </button>
         </mat-card-footer>
        </mat-card>
-
     </div>
   </div>
 </div>
