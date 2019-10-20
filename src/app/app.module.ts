@@ -14,6 +14,7 @@ import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { TruckListComponent } from './truck-list/truck-list.component';
 import { TruckAddComponent } from './truck-add/truck-add.component';
 import { TruckDetailComponent } from './truck-detail/truck-detail.component';
+import { TruckItemComponent } from './truck-list/truck-item/truck-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TruckDetailComponent } from './truck-detail/truck-detail.component';
     HeaderNavComponent,
     TruckListComponent,
     TruckAddComponent,
-    TruckDetailComponent
+    TruckDetailComponent,
+    TruckItemComponent
   ],
   imports: [
     BrowserModule,

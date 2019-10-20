@@ -1,54 +1,37 @@
 
 <div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 150vh">
 
-  <div fxLayout="row wrap">
+  <div fxLayout="row wrap" >
     <!-- loop over the cardList and show the cards -->
-    <div
-      fxFlex="25"
-      fxFlex.md="33"
-      fxFlex.sm="50"
-      fxFlex.xs="100"
-      fxLayout="column"
-      style="padding: 5px;"
-    >
-      <!-- cards here -->
-      <mat-card class="mat-elevation-z1">
-        <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png" />
-        <mat-card-title> CB360 - GROUPE 1 </mat-card-title>
-        <mat-card-content>
-            <mat-accordion class="example-headers-align">
-                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Export Report
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <app-truck-item></app-truck-item>
+    </div>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <app-truck-item></app-truck-item>
+    </div>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <app-truck-item></app-truck-item>
+    </div>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <app-truck-item></app-truck-item>
+    </div>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <app-truck-item></app-truck-item>
+    </div>
+    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
 
-                  <mat-form-field>
-                    <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
-                  </mat-form-field>
-                  <mat-datepicker #picker></mat-datepicker>
-                  <mat-action-row>
-                    <button mat-button color="warn" (click)="prevStep()">Close</button>
-                    <button mat-button color="primary" (click)="nextStep()">Export</button>
-                  </mat-action-row>
-                </mat-expansion-panel>
-
-            </mat-accordion>
-
-        </mat-card-content>
+       <mat-card class="mat-elevation-z1">
+        <a [routerLink]="['/truck-add']" routerLinkActive="router-link-active" >
+            <img mat-card-image src="https://img.pngio.com/circled-plus-icon-plus-png-256_256.png" />
+        </a>
+        <hr style="margin-top:0 ;">
         <mat-card-footer>
-          <button fxFlex mat-button color="primary">
-            Edit
-          </button>
-          <button fxFlex mat-button color="primary">
-            Statistics
-          </button>
-          <button fxFlex mat-button color="warn">
-            Delete
+          <button fxFlex mat-flat-button color="primary">
+            Add new truck
           </button>
         </mat-card-footer>
-      </mat-card>
+       </mat-card>
+
     </div>
   </div>
 </div>
