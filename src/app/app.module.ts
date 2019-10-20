@@ -11,10 +11,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { TruckListComponent } from './truck-list/truck-list.component';
-import { TruckAddComponent } from './truck-add/truck-add.component';
-import { TruckDetailComponent } from './truck-detail/truck-detail.component';
-import { TruckItemComponent } from './truck-list/truck-item/truck-item.component';
+import { TruckListComponent } from './trucks/truck-list/truck-list.component';
+import { TruckAddComponent } from './trucks/truck-add/truck-add.component';
+import { TruckDetailComponent } from './trucks/truck-detail/truck-detail.component';
+import { TruckItemComponent } from './trucks/truck-list/truck-item/truck-item.component';
+import { TruckEditComponent } from './trucks/truck-edit/truck-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TruckItemComponent } from './truck-list/truck-item/truck-item.component
     TruckListComponent,
     TruckAddComponent,
     TruckDetailComponent,
-    TruckItemComponent
+    TruckItemComponent,
+    TruckEditComponent
   ],
   imports: [
     BrowserModule,

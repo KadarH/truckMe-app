@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Truck } from './../models/truck';
-import { ListService } from './list.service';
+import { Truck } from '../../models/truck';
+import { ListService } from '../../services/list.service';
 @Component({
   selector: 'app-truck-list',
   templateUrl: './truck-list.component.html',

@@ -4,9 +4,8 @@
     <h2> List of Trucks</h2>
   </div>
   <div fxLayout="row wrap" >
-    <!-- loop over the cardList and show the cards -->
-    <div  fxFlex="25" fxFlex.md="33" fxFlex.sm="50"
-          fxFlex.xs="100" fxLayout="column" style="padding: 5px;" *ngFor="let truck of trucks$ | async">
+
+    <div *ngFor="let truck of trucks$ | async" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
       <app-truck-item [truck]="truck"></app-truck-item>
     </div>
     <!--

@@ -1,0 +1,52 @@
+<div class="center" >
+    <div class="example-container mat-elevation-z8">
+        <div class="example-loading-shade"
+             *ngIf="isLoadingResults">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <mat-card class="example-card">
+          <mat-card-title class="center">
+              Add New Truck
+          </mat-card-title>
+          <mat-card-content>
+              <form [formGroup]="truckForm" (ngSubmit)="onFormSubmit()">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Truck Name" formControlName="name"
+                           [errorStateMatcher]="matcher">
+                    <mat-error>
+                      <span *ngIf="!truckForm.get('name').valid && truckForm.get('name').touched">
+                        Please enter Truck Name
+                      </span>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Truck groupe" formControlName="groupe"
+                           [errorStateMatcher]="matcher">
+                    <mat-error>
+                      <span *ngIf="!truckForm.get('groupe').valid && truckForm.get('groupe').touched">Please enter Truck Group</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Truck Description" formControlName="description"
+                            [errorStateMatcher]="matcher">
+                    <mat-error>
+                      <span *ngIf="!truckForm.get('description').valid && truckForm.get('description').touched">Please enter Truck Description</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Truck Code Device" formControlName="code"
+                            [errorStateMatcher]="matcher">
+                    <mat-error>
+                      <span *ngIf="!truckForm.get('code').valid && truckForm.get('code').touched">Please enter Unique Truck Code</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <div class="button-row">
+                    <button type="submit" [disabled]="!truckForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+                  </div>
+                </form>
+          </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+

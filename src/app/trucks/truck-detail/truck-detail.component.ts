@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DetailService } from './detail.service';
+import { DetailService } from '../../services/detail.service';
 import { Observable } from 'rxjs';
-import { Voyage } from '../models/voyage';
+import { Voyage } from '../../models/voyage';
 
 @Component({
   selector: 'app-truck-detail',
