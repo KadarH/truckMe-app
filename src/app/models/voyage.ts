@@ -1,4 +1,3 @@
-import { Time } from '@angular/common';
 
 export interface Voyage {
   id: number;

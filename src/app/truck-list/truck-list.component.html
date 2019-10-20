@@ -5,21 +5,13 @@
   </div>
   <div fxLayout="row wrap" >
     <!-- loop over the cardList and show the cards -->
-    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item></app-truck-item>
+    <div  fxFlex="25" fxFlex.md="33" fxFlex.sm="50"
+          fxFlex.xs="100" fxLayout="column" style="padding: 5px;" *ngFor="let truck of trucks$ | async">
+      <app-truck-item [truck]="truck"></app-truck-item>
     </div>
-    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item></app-truck-item>
-    </div>
-    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item></app-truck-item>
-    </div>
-    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item></app-truck-item>
-    </div>
-    <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item></app-truck-item>
-    </div>
+    <!--
+      Card : Add new truck
+    -->
     <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
 
        <mat-card class="mat-elevation-z1" style="height: 100%;">

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Truck } from 'src/app/models/truck';
 
 @Component({
   selector: 'app-truck-item',
@@ -6,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./truck-item.component.scss']
 })
 export class TruckItemComponent implements OnInit {
+
+  @Input() truck: Truck;
   step = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
+
   setStep(index: number) {
     this.step = index;
   }
