@@ -14,11 +14,12 @@ export class TruckDetailComponent implements OnInit, OnDestroy {
   id: number;
   private sub: any;
   voyages$: Observable<any>;
+  displayedColumns: string[] = ['id', 'date', 'time', 'poids', 'typeVoyage', 'coordonnees'];
+
   constructor(private route: ActivatedRoute, private voyageService: DetailService) { }
 
   ngOnInit() {
     this.sub = this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
       this.voyages$ = this.voyageService.getVoyages(parseInt(params.get('id'), 10));
     });
   }
@@ -26,5 +27,4 @@ export class TruckDetailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
 }

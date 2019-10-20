@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DetailService {
 
-  API_URL = 'http://127.0.0.1:8080/';
+  API_URL = 'http://167.71.107.32:8080/';
   Voyages$: Observable<Voyage[]>;
 
   constructor(private httpClient: HttpClient) { }

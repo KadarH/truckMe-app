@@ -1,8 +1,10 @@
+import { Time } from '@angular/common';
 
 export interface Voyage {
   id: number;
   date: string;
+  time: string;
   poids: number;
-  type: string;
+  typeVoyage: string;
   coordonnees: string;
 }
