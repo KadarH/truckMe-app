@@ -1,8 +1,15 @@
-# TruckMeApp
+<div align="center">
+  
+<img src="http://pngimg.com/uploads/truck/truck_PNG16275.png" width="200" alt="TruckMe Logo" />
+<h2>TruckMe-App</h2>
 
-A webapp for supervising trucks and sending reports to clients
+![GitHub](https://img.shields.io/github/license/KadarH/truckMe-app?style=svg)
+
+</div>
 
 --- 
+
+A webapp for supervising trucks and sending reports to clients
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
