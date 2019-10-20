@@ -16,5 +16,9 @@ export class TruckListComponent implements OnInit {
     this.trucks$ = this.truckListService.getTrucks();
   }
 
+  onDeleteTruck(event: string) {
+    console.log(event);
+    this.trucks$  = this.truckListService.deleteTruck(event);
+  }
 
 }

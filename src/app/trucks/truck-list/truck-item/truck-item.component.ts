@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Truck } from 'src/app/models/truck';
+import { ListService } from 'src/app/services/list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-truck-item',
@@ -10,8 +12,9 @@ export class TruckItemComponent implements OnInit {
 
   @Input() truck: Truck;
   step = 0;
+  @Output() deleteTruck: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private router: Router, private truckService: ListService) { }
 
   ngOnInit() {
   }
@@ -26,5 +29,9 @@ export class TruckItemComponent implements OnInit {
 
   prevStep() {
     this.step--;
+  }
+
+  onDelete(code: string) {
+    this.deleteTruck.emit(code);
   }
 }

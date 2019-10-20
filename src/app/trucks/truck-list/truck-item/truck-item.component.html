@@ -36,7 +36,7 @@
       <button [routerLink]="['/truck-detail',1]" routerLinkActive="router-link-active"  fxFlex mat-button color="primary">
         Statistics
       </button>
-      <button fxFlex mat-button color="warn">
+      <button (click)="onDelete(truck.code)" fxFlex mat-button color="warn">
         Delete
       </button>
     </mat-card-footer>

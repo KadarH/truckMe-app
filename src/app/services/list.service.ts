@@ -28,6 +28,10 @@ export class ListService {
     );
   }
 
+  deleteTruck(code: string) {
+    return this.httpClient.get(API_URL + 'devices/delete/' + code);
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -6,7 +6,7 @@
   <div fxLayout="row wrap" >
 
     <div *ngFor="let truck of trucks$ | async" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
-      <app-truck-item [truck]="truck"></app-truck-item>
+      <app-truck-item (deleteTruck)="onDeleteTruck(truck.code)" [truck]="truck"></app-truck-item>
     </div>
     <!--
       Card : Add new truck
