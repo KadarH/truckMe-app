@@ -4,6 +4,8 @@
 <h2>TruckMe-App</h2>
 
 ![GitHub](https://img.shields.io/github/license/KadarH/truckMe-app?style=svg)
+[![CircleCI](https://circleci.com/gh/KadarH/truckMe-app/tree/master.svg?style=svg)]
+![GitHub release](https://img.shields.io/github/release/KadarH/truckMe-app?style=svg)
 
 </div>
 
