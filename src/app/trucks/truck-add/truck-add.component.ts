@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 import { FormBuilder, FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Truck } from 'src/app/models/truck';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -23,9 +24,9 @@ export class TruckAddComponent implements OnInit {
   truckForm: FormGroup;
   truck = {
     name : ['', Validators.required],
-    groupe : [null, Validators.required],
-    description : [null, Validators.required],
-    code : [null, Validators.required]
+    groupe : ['', Validators.required],
+    description : ['', Validators.required],
+    code : ['', Validators.required]
   };
 
   constructor(private router: Router, private api: ListService, private formBuilder: FormBuilder) { }

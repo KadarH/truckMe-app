@@ -40,7 +40,6 @@ export class TruckItemComponent implements OnInit {
   openDialog(code: string): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '350px',
-      height: '200px',
       data: 'Do you confirm the deletion of truck = ' + code
     });
     dialogRef.afterClosed().subscribe(result => {
