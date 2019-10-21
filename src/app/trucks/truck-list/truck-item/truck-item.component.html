@@ -1,15 +1,22 @@
 
 <mat-card class="mat-elevation-z1">
     <mat-card-header>
-        <mat-card-title> {{truck.code}} / {{truck.groupe}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="http://pngimg.com/uploads/truck/truck_PNG16275.png" />
+        <div mat-card-avatar>
+            <mat-icon aria-hidden="true" aria-label="Router">router</mat-icon>
+        </div>
+        <mat-card-title>{{truck.code}}</mat-card-title>
+        <mat-card-subtitle>{{truck.groupe}}</mat-card-subtitle>
+        <span class="spacer"></span>
+
+        <a [routerLink]="['/truck-edit',truck.id]" routerLinkActive="router-link-active" >
+          <mat-icon  aria-hidden="true" aria-label="User">edit</mat-icon>
+        </a>
+        <a (click)="openDialog(truck.code)" style="cursor: pointer;">
+          <mat-icon color="warn" aria-hidden="true" aria-label="Delete">delete</mat-icon>
+        </a>
+      </mat-card-header>
+    <img mat-card-image src="assets/truck-pic.png" />
     <mat-card-content>
-      <mat-card>
-        <mat-card-content>
-          <p>{{truck.description}}</p>
-        </mat-card-content>
-      </mat-card>
       <mat-accordion class="example-headers-align">
             <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
               <mat-expansion-panel-header>
@@ -30,14 +37,10 @@
         </mat-accordion>
     </mat-card-content>
     <mat-card-footer>
-      <button fxFlex mat-button color="primary">
-        Edit
-      </button>
-      <button [routerLink]="['/truck-detail',1]" routerLinkActive="router-link-active"  fxFlex mat-button color="primary">
+      <button [routerLink]="['/truck-detail',1]" routerLinkActive="router-link-active"
+        fxFlex mat-raised-button color="primary">
+            <mat-icon aria-hidden="true" aria-label="User">search</mat-icon>
         Statistics
-      </button>
-      <button (click)="onDelete(truck.code)" fxFlex mat-button color="warn">
-        Delete
       </button>
     </mat-card-footer>
 </mat-card>

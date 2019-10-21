@@ -16,6 +16,7 @@ import { TruckAddComponent } from './trucks/truck-add/truck-add.component';
 import { TruckDetailComponent } from './trucks/truck-detail/truck-detail.component';
 import { TruckItemComponent } from './trucks/truck-list/truck-item/truck-item.component';
 import { TruckEditComponent } from './trucks/truck-edit/truck-edit.component';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TruckEditComponent } from './trucks/truck-edit/truck-edit.component';
     TruckAddComponent,
     TruckDetailComponent,
     TruckItemComponent,
-    TruckEditComponent
+    TruckEditComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { TruckEditComponent } from './trucks/truck-edit/truck-edit.component';
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
+  entryComponents: [ConfirmationDialogComponent],
   providers: []
 })
 export class AppModule { }

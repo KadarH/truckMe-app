@@ -9,16 +9,21 @@ import { ListService } from '../../services/list.service';
 })
 export class TruckListComponent implements OnInit {
 
-  trucks$: Observable<any>;
+  trucks$: Truck[];
   constructor(private truckListService: ListService) { }
 
   ngOnInit() {
-    this.trucks$ = this.truckListService.getTrucks();
+    this.truckListService.getTrucks().subscribe((data: Truck[]) => {
+      this.trucks$ = data;
+    });
   }
 
   onDeleteTruck(event: string) {
     console.log(event);
-    this.trucks$  = this.truckListService.deleteTruck(event);
+    this.truckListService.deleteTruck(event).subscribe((data: Truck[]) => {
+      console.log(data);
+      this.trucks$ = data;
+    });
   }
 
 }

@@ -1,11 +1,11 @@
 
-<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 150vh">
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 150vh" >
   <div style="text-align: center;">
     <h2> List of Trucks</h2>
   </div>
   <div fxLayout="row wrap" >
 
-    <div *ngFor="let truck of trucks$ | async" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+    <div *ngFor="let truck of trucks$" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
       <app-truck-item (deleteTruck)="onDeleteTruck(truck.code)" [truck]="truck"></app-truck-item>
     </div>
     <!--
@@ -13,11 +13,15 @@
     -->
     <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
 
-       <mat-card class="mat-elevation-z1" style="height: 100%;">
+       <mat-card  style="height: 100%;">
         <a [routerLink]="['/truck-add']" routerLinkActive="router-link-active" >
-            <img mat-card-image src="https://img.pngio.com/circled-plus-icon-plus-png-256_256.png" />
+            <img mat-card-image src="assets/truck-add.png" />
         </a>
-        <hr style="margin-top:0 ;">
+       <mat-card-content style="text-align: center;">
+          <p>
+             Please to set a unique Code
+          </p>
+       </mat-card-content>
         <mat-card-footer>
           <button style="height: 57px;" fxFlex mat-flat-button color="primary">
             Add new truck
