@@ -1,22 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Truck } from 'src/app/models/truck';
-import { ListService } from 'src/app/services/list.service';
-import { Router } from '@angular/router';
+import * as fileSaver from 'file-saver';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
+import { DetailService } from 'src/app/services/detail.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-truck-item',
   templateUrl: './truck-item.component.html',
-  styleUrls: ['./truck-item.component.scss']
+  styleUrls: ['./truck-item.component.scss'],
+  providers: [DatePipe]
 })
 export class TruckItemComponent implements OnInit {
 
   @Input() truck: Truck;
-  step = 0;
   @Output() deleteTruck: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor(private router: Router, private truckService: ListService, public dialog: MatDialog) { }
+  dateChoosed: string;
+  step = 0;
+  constructor(public datepipe: DatePipe, private voyageService: DetailService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -45,9 +47,22 @@ export class TruckItemComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Yes clicked', result);
-        // DO SOMETHING
         this.onDelete(code);
       }
     });
+  }
+
+  onExport(id: number, date: string) {
+    this.voyageService.exportVoyages(id, this.datepipe.transform(date, 'yyyy-MM-dd')).subscribe(response => {
+      const filename = response.headers.get('filename');
+
+      this.saveFile(response.body, filename);
+    });
+  }
+
+
+  saveFile(data: any, filename?: string) {
+    const blob = new Blob([data], {type: 'text/csv; charset=utf-8'});
+    fileSaver.saveAs(blob, filename);
   }
 }

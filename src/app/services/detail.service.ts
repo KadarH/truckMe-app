@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Voyage } from '../models/voyage';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+const API_URL = 'http://127.0.0.1:8080/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailService {
-
-  API_URL = 'http://127.0.0.1:8080/';
-
+  headers = new HttpHeaders();
   constructor(private httpClient: HttpClient) { }
 
   getVoyages(id: number) {
-    return this.httpClient.get(this.API_URL + 'voyages/' + id);
+    return this.httpClient.get(API_URL + 'voyages/' + id);
+  }
+
+  exportVoyages(id: number, date: string): Observable<HttpResponse<string>> {
+    let headersp = new HttpHeaders();
+    console.log(API_URL + 'voyages/1/' + date + '/export');
+    headersp = headersp.append('Accept', 'text/csv');
+    return this.httpClient.get(API_URL + 'voyages/1/' + date + '/export', {
+      headers: headersp,
+      observe: 'response',
+      responseType: 'text'
+    });
   }
 }

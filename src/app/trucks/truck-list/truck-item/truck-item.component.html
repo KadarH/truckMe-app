@@ -25,12 +25,12 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-form-field>
-                <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                <input [(ngModel)]="dateChoosed" matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
               </mat-form-field>
               <mat-datepicker #picker></mat-datepicker>
               <mat-action-row>
                 <button mat-button color="warn" (click)="prevStep()">Close</button>
-                <button mat-button color="primary" (click)="nextStep()">Export</button>
+                <button mat-button color="primary" (click)="onExport(truck.id,dateChoosed)">Export</button>
                 <button mat-button color="primary" (click)="nextStep()">Send</button>
               </mat-action-row>
             </mat-expansion-panel>

@@ -17,6 +17,7 @@ import { TruckDetailComponent } from './trucks/truck-detail/truck-detail.compone
 import { TruckItemComponent } from './trucks/truck-list/truck-item/truck-item.component';
 import { TruckEditComponent } from './trucks/truck-edit/truck-edit.component';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
