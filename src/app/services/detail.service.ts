@@ -19,9 +19,8 @@ export class DetailService {
 
   exportVoyages(id: number, date: string): Observable<HttpResponse<string>> {
     let headersp = new HttpHeaders();
-    console.log(API_URL + 'voyages/1/' + date + '/export');
     headersp = headersp.append('Accept', 'text/csv');
-    return this.httpClient.get(API_URL + 'voyages/1/' + date + '/export', {
+    return this.httpClient.get(API_URL + 'voyages/' + id + '/' + date + '/export', {
       headers: headersp,
       observe: 'response',
       responseType: 'text'

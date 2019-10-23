@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { DetailService } from 'src/app/services/detail.service';
 import { DatePipe } from '@angular/common';
+import { throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-truck-item',
@@ -18,7 +20,7 @@ export class TruckItemComponent implements OnInit {
   @Output() deleteTruck: EventEmitter<any> = new EventEmitter<any>();
   dateChoosed: string;
   step = 0;
-  constructor(public datepipe: DatePipe, private voyageService: DetailService, public dialog: MatDialog) { }
+  constructor(public datepipe: DatePipe, private voyageService: DetailService, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -53,16 +55,33 @@ export class TruckItemComponent implements OnInit {
   }
 
   onExport(id: number, date: string) {
-    this.voyageService.exportVoyages(id, this.datepipe.transform(date, 'yyyy-MM-dd')).subscribe(response => {
-      const filename = response.headers.get('filename');
-
-      this.saveFile(response.body, filename);
+    this.voyageService.exportVoyages(id, date = this.datepipe.transform(date, 'yyyy-MM-dd'))
+    .subscribe(response => {
+      this.saveFile(response.body, 'voyages_' + id + '_' + date);
+    }, err => {
+      this.handleError(err);
     });
   }
-
 
   saveFile(data: any, filename?: string) {
     const blob = new Blob([data], {type: 'text/csv; charset=utf-8'});
     fileSaver.saveAs(blob, filename);
+  }
+
+  handleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    this.dateChoosed = null;
+    this.nextStep();
+    this.snackBar.open('There is no Voyage for this truck on this date', 'Ok', {
+      duration: 4000,
+    });
+    return throwError(errorMessage);
   }
 }
