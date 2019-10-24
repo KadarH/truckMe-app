@@ -58,7 +58,14 @@ export class TruckItemComponent implements OnInit {
     this.voyageService.exportVoyages(id, date = this.datepipe.transform(date, 'yyyy-MM-dd'))
     .subscribe(response => {
       this.saveFile(response.body, 'voyages_' + id + '_' + date);
+      this.nextStep();
+      this.snackBar.open('List Voyage Exported successfully', 'Ok', {
+        duration: 4000,
+      });
     }, err => {
+      this.snackBar.open('There is no Voyage for this truck on this date', 'Ok', {
+        duration: 4000,
+      });
       this.handleError(err);
     });
   }
@@ -79,9 +86,6 @@ export class TruckItemComponent implements OnInit {
     }
     this.dateChoosed = null;
     this.nextStep();
-    this.snackBar.open('There is no Voyage for this truck on this date', 'Ok', {
-      duration: 4000,
-    });
     return throwError(errorMessage);
   }
 }
