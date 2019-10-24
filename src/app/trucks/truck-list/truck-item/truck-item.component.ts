@@ -70,6 +70,22 @@ export class TruckItemComponent implements OnInit {
     });
   }
 
+  onExportRecords(id: number, date: string) {
+    this.voyageService.exportRecords(id, date = this.datepipe.transform(date, 'yyyy-MM-dd'))
+    .subscribe(response => {
+      this.saveFile(response.body, 'records_' + id + '_' + date);
+      this.nextStep();
+      this.snackBar.open('List Records Exported successfully', 'Ok', {
+        duration: 4000,
+      });
+    }, err => {
+      this.snackBar.open('There is no Record for this truck on this date', 'Ok', {
+        duration: 4000,
+      });
+      this.handleError(err);
+    });
+  }
+
   saveFile(data: any, filename?: string) {
     const blob = new Blob([data], {type: 'text/csv; charset=utf-8'});
     fileSaver.saveAs(blob, filename);

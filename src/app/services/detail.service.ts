@@ -26,4 +26,14 @@ export class DetailService {
       responseType: 'text'
     });
   }
+
+  exportRecords(id: number, date: string): Observable<HttpResponse<string>> {
+    let headersp = new HttpHeaders();
+    headersp = headersp.append('Accept', 'text/csv');
+    return this.httpClient.get(API_URL + 'records/' + id + '/' + date + '/export', {
+      headers: headersp,
+      observe: 'response',
+      responseType: 'text'
+    });
+  }
 }

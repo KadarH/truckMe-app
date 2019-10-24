@@ -30,8 +30,8 @@
               <mat-datepicker #picker></mat-datepicker>
               <mat-action-row>
                 <button mat-button color="warn" (click)="prevStep()">Close</button>
-                <button mat-button color="primary" (click)="onExport(truck.id,dateChoosed)">Export</button>
-                <button mat-button color="primary" (click)="nextStep()">Send</button>
+                <button mat-button color="primary" (click)="onExport(truck.id,dateChoosed)">Voyages</button>
+                <button mat-button color="primary" (click)="onExportRecords(truck.id,dateChoosed)">Records</button>
               </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
