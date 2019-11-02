@@ -7,6 +7,8 @@ import { DetailService } from 'src/app/services/detail.service';
 import { DatePipe } from '@angular/common';
 import { throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import domtoimage from 'dom-to-image';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-truck-item',
@@ -104,4 +106,51 @@ export class TruckItemComponent implements OnInit {
     this.nextStep();
     return throwError(errorMessage);
   }
+
+  downloadPDF() {
+
+    const node = document.getElementById('parentdiv');
+
+    let img;
+    let filename;
+    let newImage;
+
+
+    domtoimage.toPng(node, { bgcolor: '#fff' })
+
+      .then((dataUrl) => {
+
+        img = new Image();
+        img.src = dataUrl;
+        newImage = img.src;
+
+        img.onload = () => {
+          const pdfWidth = img.width;
+          const pdfHeight = img.height;
+          // FileSaver.saveAs(dataUrl, 'my-pdfimage.png'); // Save as Image
+          let doc;
+          if (pdfWidth > pdfHeight) {
+            doc = new jsPDF('l', 'px', [pdfWidth , pdfHeight]);
+          } else {
+            doc = new jsPDF('p', 'px', [pdfWidth , pdfHeight]);
+          }
+          const width = doc.internal.pageSize.getWidth();
+          const height = doc.internal.pageSize.getHeight();
+          doc.addImage(newImage, 'PNG',  10, 10, width, height);
+          filename = 'mypdf_' + '.pdf';
+          doc.save(filename);
+        };
+
+      })
+      .catch((error) => {
+
+       // Error Handling
+       console.log(error);
+
+      });
+
+
+
+  }
+
 }
